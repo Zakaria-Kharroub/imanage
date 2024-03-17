@@ -14,8 +14,8 @@
         </tr>
       </thead>
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        @if($payment->count()>0)
-            @foreach($payment as $rs )
+        @if($Payment->count()>0)
+            @foreach($Payment as $rs )
                 <tr class="text-gray-700 dark:text-gray-400">
                     <td>{{$loop->iteration}}</td>
                 <td class="px-4 py-3">
@@ -26,7 +26,7 @@
                         <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                     </div>
                     <div>
-                        <p class="font-semibold">{{$rs->student->nom }}  {{$rs->student->prenom }} </p>
+                        <p class="font-semibold">{{$rs->students->nom }}  {{$rs->students->prenom }} </p>
                     </div>
                     </div>
                 </td>
@@ -74,4 +74,7 @@
       </tbody>
     </table>
   </div>
+  <div class="mt-4 text-lg font-semibold text-gray-700 dark:text-gray-200">
+    Total Amount: {{ $totalAmount ?? 0 }}
+</div>
 @endsection

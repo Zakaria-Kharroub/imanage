@@ -7,11 +7,13 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ClasseController;
+use App\Http\Controllers\DashboardController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware(['auth:sanctum', 'verified'])->name('welcome');
+Route::get('/', [DashboardController::class, 'index'])
+    ->middleware(['auth:sanctum', 'verified'])
+    ->name('welcome');
+
 
 Route::get('/test', function () {
     return view('test');

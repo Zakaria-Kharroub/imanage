@@ -2,40 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Formation;
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use App\Models\Student;
 
 class PaymentController extends Controller
 {
     public function getPayment(){
-        $Payments = Payment::all();
-        return view('payment.payment',compact('Payments'));
+        $Payment = Payment::all();
+        $totalAmount = $Payment->sum('amount');
+        return view('payment.payment',compact('Payment','totalAmount'));
     }
 
     public function create(){
-        return view('payment.createPayment');
+        $students = Student::select('id', 'name')->get();
+        $formations = Formation::select('id', 'name')->get();
+        return view('payment.createPayment', compact('students', 'formations'));
     }
-
     public function addPayment(Request $request){
 
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'date_naissance' => 'required',
-            'cin' => 'required'
+        $validatedData = $request->validate([
+            'amount' => 'required',
+            'date' => 'required',
+            'student_id' => 'required|exists:students,id',
+            'formation_id' => 'required|exists:formations,id',
         ]);
 
-        $Payment = new Payment();
-        $Payment->name = $request->input('name');
-        $Payment->email = $request->input('email');
-        $Payment->phone = $request->input('phone');
-        $Payment->date_naissance = $request->input('date_naissance');
-        $Payment->cin = $request->input('cin');
-        $Payment->save();
+        // Create a new payment
+        Payment::create($validatedData);
 
-        return redirect()->route('getPayment')->with('info','Payment Added Successfully');
-
+        // Redirect back or wherever appropriate
+        return redirect()->route('getPayment')->with('success', 'Payment added successfully.');
     }
 
     // public function show(string $id)
