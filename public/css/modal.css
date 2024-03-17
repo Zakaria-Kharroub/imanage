@@ -1,0 +1,414 @@
+html *{
+    -webkit-font-smoothing: antialiased;
+}
+
+p{
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0 0 10px;
+}
+
+.title h3{
+    font-weight:300;
+    font-size:25px;
+    margin-top:25px;
+    color: #3C4858;
+}
+
+.btn{
+    position: relative;
+    padding: 12px 30px !important;
+    margin: 5px 1px !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+
+.btn.btn-primary {
+    color: #fff !important;
+    background-color: #9c27b0 !important;
+    border-color: #9c27b0;
+    box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14),
+                0 3px 1px -2px rgba(156, 39, 176, 0.2),
+                0 1px 5px 0 rgba(156, 39, 176, 0.12);
+}
+
+.btn.btn-primary:hover{
+        box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42),
+                    0 4px 23px 0px rgba(0, 0, 0, 0.12), 
+                    0 8px 10px -5px rgba(156, 39, 176, 0.2);
+}
+
+.btn.btn-primary:active{
+        box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42),
+                    0 4px 23px 0px rgba(0, 0, 0, 0.12), 
+                    0 8px 10px -5px rgba(156, 39, 176, 0.2) !important;
+}
+.btn.btn-link{
+    background-color: transparent;
+    color: #999999;
+    box-shadow: none;
+    font-size: 14px !important;
+}
+
+.btn.btn-link:hover{
+    background-color: transparent;
+    color: #999999;
+    text-decoration: none;
+}
+
+.btn.btn-danger.btn-link {
+    background-color: transparent;
+    color: #f44336;
+    box-shadow: none;
+}
+
+.btn.btn-primary.btn-link{
+    background-color: transparent !important;
+    color: #9c27b0 !important;
+}
+
+.btn.btn-primary.btn-link:hover{
+    background-color: transparent !important;
+    color: #9c27b0 !important;
+    box-shadow: none ;
+}
+
+.btn.btn-primary.btn-link:active{
+    background-color: transparent !important;
+    color: #9c27b0 !important;
+    box-shadow: none !important;
+}
+
+.btn.btn-info {
+    color: #fff !important;
+    background-color: #00bcd4 !important;
+    border-color: #00bcd4;
+    box-shadow: 0 2px 2px 0 rgba(0,188,212,.14), 0 3px 1px -2px rgba(0,188,212,.2), 0 1px 5px 0 rgba(0,188,212,.12);
+}
+
+.btn.btn-info.focus{
+    color: #fff;
+    background-color: #00aec5;
+    border-color: #008697;
+    box-shadow: 0 14px 26px -12px rgba(0,188,212,.42),
+                0 4px 23px 0 rgba(0,0,0,.12), 
+                0 8px 10px -5px rgba(0,188,212,.2);
+
+}
+.btn.btn-info:focus{
+    color: #fff;
+    background-color: #00aec5;
+    border-color: #008697;
+    box-shadow: 0 14px 26px -12px rgba(0,188,212,.42),
+                0 4px 23px 0 rgba(0,0,0,.12), 
+                0 8px 10px -5px rgba(0,188,212,.2);
+}
+ .btn.btn-info:hover {
+    color: #fff;
+    background-color: #00aec5;
+    border-color: #008697;
+    box-shadow: 0 14px 26px -12px rgba(0,188,212,.42),
+                0 4px 23px 0 rgba(0,0,0,.12), 
+                0 8px 10px -5px rgba(0,188,212,.2);
+}
+    
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn .material-icons{
+    position: relative;
+    display: inline-block;
+    top: 0;
+    margin-top: -1em;
+    margin-bottom: -1em;
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+.btn.btn-just-icon {
+    font-size: 24px !important;
+    height: 41px;
+    min-width: 41px;
+    width: 41px;
+    padding: 0 !important;
+    overflow: hidden;
+    position: relative;
+    line-height: 41px;
+}
+
+
+.btn.btn-just-icon .fa {
+    color: #fff;
+    margin-top: 0;
+    position: absolute;
+    width: 100%;
+    transform: none;
+    left: 0;
+    top: 0;
+    height: 100%;
+    line-height: 41px;
+    font-size: 20px;
+}
+
+.btn.btn-lg{
+    padding: 18px !important;
+}
+
+.btn.btn-round {
+    border-radius: 30px;
+}
+.modal-dialog .modal-content{
+    box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+    border-radius: 6px;
+    border: none;
+}
+.modal-dialog .modal-header{
+    border-bottom: none;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-bottom: 0;
+    padding-left: 24px;
+}
+
+.modal-dialog .modal-header .modal-title{
+    font-size: 17px;
+    font-weight: 300;
+    color: #3C4858;
+    margin-bottom: 0;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.modal-dialog .modal-body {
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    color: #3C4858;
+}
+
+.modal .modal-header .close i{
+    font-size: 16px;
+    color: #999;
+}
+
+.modal-dialog .modal-footer{
+    border-top: none;
+    padding: 24px !important;
+}
+
+.modal-dialog .modal-body+.modal-footer{
+    padding-top: 0 !important;
+}
+.modal-dialog .modal-footer button{
+    margin: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: auto;
+}
+
+footer{
+    margin-top:200px;
+    color: #555;
+    background: #fff;
+    padding: 25px;
+    font-weight: 300;
+    
+}
+.footer p{
+    margin-bottom: 0;
+}
+footer p a{
+    color: #555;
+    font-weight: 400;
+}
+
+footer p a:hover{
+    color: #9f26aa;
+    text-decoration: none;
+}
+
+.modal-login {
+    max-width: 360px !important;
+    margin-top:130px;
+}
+
+.modal-dialog .modal-content .card-signup .modal-header {
+    padding-top: 0;
+}
+
+.modal-login .modal-header .card-header{
+    width: 100%;
+}
+
+.modal-login .modal-header .close {
+    color: #fff;
+    top: -25px;
+    right: 50px;
+    text-shadow: none;
+    position: absolute;
+}
+
+.modal-login .modal-header .close i{
+    color: #fff;
+   
+}
+
+
+.modal-login .modal-body {
+    padding-left: 4px !important;
+}
+
+.modal-login .modal-footer {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+.modal-login .modal-header .card-header .social-line {
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0;
+}
+
+
+.modal-login .modal-header .card-header .social-line .btn {
+    color: #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.modal-login .modal-body {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+.modal-login .modal-body .form .description {
+    padding-top: 15px;
+    margin-bottom: -10px;
+    color: #999;
+}
+
+.card .card-title{
+    color: #fff;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    font-family: Roboto Slab,Times New Roman,serif;
+    margin-top:10px;
+}
+
+.card .card-header{
+    border-radius: 3px !important;
+    padding: 1rem 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border: 0;
+}
+.card .card-header-primary {
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.2), 0 13px 24px -11px rgba(156,39,176,.6);
+    background: linear-gradient(60deg,#ab47bc,#7b1fa2)
+}
+
+.card-plain .card-body {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+
+.card .card-body {
+    padding: 15px;
+}
+
+.card form {
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 17px !important;
+    position: relative;
+}
+
+.bmd-form-group {
+    position: relative;
+    padding-top: 27px !important;
+}
+
+
+.input-group-prepend {
+    margin-right: -1px;
+}
+
+.input-group .input-group-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.form-control::placeholder{
+    color: #aaaaaa !important;
+    font-size:14px !important;
+}
+
+.form-control, .is-focused .form-control {
+    background-image: linear-gradient(0deg,#9c27b0 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0) !important;
+}
+
+.form-control:focus{
+    box-shadow: none !important;
+}
+
+.modal-dialog .modal-body {
+    padding: 24px 24px 16px;
+}
+
+.modal-dialog .modal-footer button {
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: auto;
+}
+.modal-notice .instruction {
+    margin-bottom: 25px;
+}
+
+.modal-notice .picture {
+    height:87px !important;
+    width:131px !important;
+}
+
+
+img.rounded {
+    border-radius: 6px !important;
+}
+
+.img-fluid{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+strong{
+ font-weight: 400 !important;
+}
+
+
+a {
+    color: #3e3947 !important;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #89229b !important;
+    text-decoration: none !important;
+}

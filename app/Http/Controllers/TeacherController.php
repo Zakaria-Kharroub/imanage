@@ -46,25 +46,32 @@ class TeacherController extends Controller
         return view('showTeacher',compact('teachers'));
     }
 
+    public function editTeacher($id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        // Add logic to retrieve classes if needed
+        return view('Teacher.editTeacher', compact('teacher'));
+    }
 
-    // public function edit(string $id){
-    //     $teachers=Teacher::findOrFail($id);
-    //     return view('teacher.editTeacher',compact('teachers'));
-    // }
+    public function updateTeacher(Request $request, $id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        $teacher->name = $request->input('name');
+        $teacher->email = $request->input('email');
+        $teacher->phone = $request->input('phone');
+        $teacher->date_naissance = $request->input('date_naissance');
+        $teacher->cin = $request->input('cin');
+        $teacher->classe_id = $request->input('classe_id');
+        $teacher->save();
+        return redirect()->route('getTeacher');
+    }
 
-
-    // public function update(Request $request , string $id){
-    //     $teachers=Teacher::findOrFail($id);
-    //     $teachers->update($request->all( ));
-    //     return redirect()->route('teachers.index')->with('seccess');
-    // }
-
-
-    // public function  destroy(string $id){
-    //     $teachers= teacher::findOrFail( $id );
-    //     $teachers -> delete();
-    //     return redirect()->route('teachers')->with('success');
-    // }
+    public function deleteTeacher($id)
+    {
+        $teacher = Teacher::findOrFail($id);
+        $teacher->delete();
+        return redirect()->route('getTeacher');
+    }
 
 
 }

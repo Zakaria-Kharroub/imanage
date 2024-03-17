@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\StudentController;
-// use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ClasseController;
@@ -48,6 +48,10 @@ Route::post('/logout', [UserController::class, 'logoutUser'])->middleware(['auth
 Route::get('/students', [StudentController::class, 'getStudent'])->name('getStudent');
 Route::get('/createStudent', [StudentController::class, 'createStudent'])->name('createStudent');
 Route::post('/addStudent', [StudentController::class, 'addStudent'])->name('addStudent');
+Route::get('/students/{id}/edit', [StudentController::class, 'editStudent'])->name('editStudent');
+Route::put('/students/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
+Route::delete('/students/{id}', [StudentController::class, 'deleteStudent'])->name('deleteStudent');
+
 // Route::get('students/show/{id}','show')->name('students.show');
 // Route::get('students/edit/{id}','edit')->name('students.edit');
 // Route::put('students/edit/{id}','update')->name('students.update');
@@ -60,6 +64,10 @@ Route::post('/addStudent', [StudentController::class, 'addStudent'])->name('addS
 Route::get('/teacher', [TeacherController::class, 'getTeacher'])->name('getTeacher');
 Route::get('/createTeacher', [TeacherController::class, 'create'])->name('createTeacher');
 Route::post('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addTeacher');
+Route::get('/teacher/{id}/edit', [TeacherController::class, 'editTeacher'])->name('editTeacher');
+Route::put('/teacher/{id}', [TeacherController::class, 'updateTeacher'])->name('updateTeacher');
+Route::delete('/teacher/{id}', [TeacherController::class, 'deleteTeacher'])->name('deleteTeacher');
+
 // Route::get('teachers/show/{id}','show')->name('teachers.show');
 // Route::get('teachers/edit/{id}','edit')->name('teachers.edit');
 // Route::put('teachers/edit/{id}','update')->name('teachers.update');
@@ -70,13 +78,13 @@ Route::post('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addT
 //payment
 
 
-// Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
-// Route::get('/createPayment', [PaymentController::class, 'create'])->name('payments.create');
-// Route::post('/paymentstore', [PaymentController::class, 'store'])->name('payments.store');
+Route::get('/payments', [PaymentController::class, 'getPayment'])->name('getPayment');
+Route::get('/createPayment', [PaymentController::class, 'create'])->name('createPayment');
+Route::post('/addPayment', [PaymentController::class, 'addPayment'])->name('addPayment');
 // Route::get('payments/show/{id}','show')->name('payments.show');
 // Route::get('payments/edit/{id}','edit')->name('payments.edit');
 // Route::put('payments/edit/{id}','update')->name('payments.update');
-// Route::delete('payments/destroy/{id}','destroy')->name('payments.destroy');
+Route::delete('/payments/{id}', [PaymentController::class, 'deletePayment'])->name('deletePayment');
 
 
 //formation

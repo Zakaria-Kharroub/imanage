@@ -9,18 +9,24 @@ class Payment extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'student',
-        'formation',
+        'student_id',
+        'formation_id',
         'amount',
         'date'
     ];
+
     public function student()
     {
-        return $this->belongsTo(Student::class, 'id');
+        return $this->belongsTo(Student::class, 'student_id'); // Corrected foreign key
+    }
+
+    public function formation()
+    {
+        return $this->belongsTo(Formation::class, 'formation_id'); // Assuming you have a Formation model
     }
     public function showPayments()
 {
     $payments = Payment::with('student')->get();
-    return view('payments.index', compact('payments'));
+    return view('payment.payment', compact('payments'));
 }
 }
