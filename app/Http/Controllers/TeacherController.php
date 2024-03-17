@@ -47,30 +47,24 @@ class TeacherController extends Controller
     }
 
 
-    public function edit(string $id){
-        $teachers=Teacher::findOrFail($id);
-        return view('teacher.editTeacher',compact('teachers'));
-    }
+    // public function edit(string $id){
+    //     $teachers=Teacher::findOrFail($id);
+    //     return view('teacher.editTeacher',compact('teachers'));
+    // }
 
 
-    public function update(Request $request , string $id){
-        $teachers=Teacher::findOrFail($id);
-        $teachers->update($request->all( ));
-        return redirect()->route('teachers.index')->with('seccess');
-    }
+    // public function update(Request $request , string $id){
+    //     $teachers=Teacher::findOrFail($id);
+    //     $teachers->update($request->all( ));
+    //     return redirect()->route('teachers.index')->with('seccess');
+    // }
 
 
-    public function  destroy(string $id){
-        $teachers= teacher::findOrFail( $id );
-        $teachers -> delete();
-        return redirect()->route('teachers')->with('success');
-    }
-
-
-
-        
-        
-
+    // public function  destroy(string $id){
+    //     $teachers= teacher::findOrFail( $id );
+    //     $teachers -> delete();
+    //     return redirect()->route('teachers')->with('success');
+    // }
 
 
 }

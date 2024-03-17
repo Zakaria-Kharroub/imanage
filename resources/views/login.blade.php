@@ -73,7 +73,7 @@
           </svg>
           <span>Sign In with Apple</span>
         </button>
-        <p class="note">Terms of use &amp; Conditions </p>
+        <a href="{{route('register')}}"><p class="note">Register ? </p></a>
       </form>
 </body>
 </html>

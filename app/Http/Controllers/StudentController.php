@@ -34,36 +34,31 @@ class StudentController extends Controller
 
     }
         
-
-    public function show(string $id)
-    {
-        $students=Student::findOrFail($id);
-        return view('showStudent',compact('students'));
-    }
-
-
-    public function edit(string $id){
-        $students=Student::findOrFail($id);
-        return view('teacher.editStudent',compact('students'));
-    }
+    // public function show(string $id)
+    // {
+    //     $students=Student::findOrFail($id);
+    //     return view('showStudent',compact('students'));
+    // }
 
 
-    public function update(Request $request , string $id){
-        $students=Student::findOrFail($id);
-        $students->update($request->all( ));
-        return redirect()->route('students.index')->with('seccess');
-    }
+    // public function edit(string $id){
+    //     $students=Student::findOrFail($id);
+    //     return view('teacher.editStudent',compact('students'));
+    // }
 
 
-    public function  destroy(string $id){
-        $students= Student::findOrFail( $id );
-        $students -> delete();
-        return redirect()->route('students')->with('success');
-    }
+    // public function update(Request $request , string $id){
+    //     $students=Student::findOrFail($id);
+    //     $students->update($request->all( ));
+    //     return redirect()->route('students.index')->with('seccess');
+    // }
 
 
-
-
+    // public function  destroy(string $id){
+    //     $students= Student::findOrFail( $id );
+    //     $students -> delete();
+    //     return redirect()->route('students')->with('success');
+    // }
 
 
 }
