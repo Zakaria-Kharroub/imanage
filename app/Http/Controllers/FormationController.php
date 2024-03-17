@@ -22,9 +22,6 @@ class FormationController extends Controller
 
     public function addFormation(Request $request){
         
-
-
-
         $formation = new Formation();
         $formation->name = $request->input('name');
         $formation->description = $request->input('description');
