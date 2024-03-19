@@ -15,11 +15,13 @@ class Student extends Model
         'phone',
         'date_naissance',
         'cin',
-        'classe_id',
+        'image',
+        'classe_id'
     ];
 
     public function classes(){
         return $this->belongsToMany(Classe::class);
+        
     }
 
 }

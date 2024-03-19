@@ -16,10 +16,11 @@ class ClasseController extends Controller
 
     public function getClass(){
         
-        $classes = Classe::all();
+        $classes = Classe::paginate(7);
         $teachers = Teacher::all();
         $formations = Formation::all();
-        return view('class.class', compact('classes', 'teachers', 'formations'));
+        $startingIndex = ($classes->currentPage() - 1) * $classes->perPage() + 1;
+        return view('class.class', compact('classes', 'teachers', 'formations', 'startingIndex'));
     }
 
     public function createClass(){

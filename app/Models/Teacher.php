@@ -14,6 +14,7 @@ class Teacher extends Model
         'email',
         'phone',
         'date_naissance',
+        'image',
         'cin'
     ];
 

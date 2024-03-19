@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->date('date_naissance');
             $table->string('cin');
+            $table->string('image')->nullable(); 
             $table->unsignedBigInteger('classe_id');
             $table->foreign('classe_id')->references('id')->on('classes');
 

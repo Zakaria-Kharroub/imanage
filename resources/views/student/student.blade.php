@@ -17,14 +17,15 @@
         @if($students->count()>0)
             @foreach($students as $rs )
                 <tr class="text-gray-700 dark:text-gray-400">
-                    <td>{{$loop->iteration}}</td>
+                    <td>{{ $startingIndex++ }}</td>
                 <td class="px-4 py-3">
                     <div class="flex items-center text-sm">
                     <!-- Avatar with inset shadow -->
-                    <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                        <img class="object-cover w-full h-full rounded-full" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="" loading="lazy"/>
+                    <div class="relative hidden w-12 h-12 mr-3 rounded-full md:block">
+                        <img class="object-cover w-full h-full rounded-full" src="storage/images/{{$rs->image}}" alt="Student Image" loading="lazy"/>
                         <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                     </div>
+                    
                     <div>
                         <p class="font-semibold">{{$rs->name }}</p>
                         <p class="text-xs text-gray-600 dark:text-gray-400">{{$rs->cin}}</p>
@@ -70,6 +71,8 @@
                     </div>
                 
                 </tr>
+                
+
             @endforeach
         @else
         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
@@ -82,4 +85,5 @@
     </table>
     
   </div>
+  {{ $students->links() }}
 @endsection

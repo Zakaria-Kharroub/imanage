@@ -10,8 +10,9 @@ class TeacherController extends Controller
     //
 
     public function getTeacher(){
-        $teachers = Teacher::all();
-        return view('teacher.teacher',compact('teachers'));
+        $teachers = Teacher::paginate(7);
+        $startingIndex = ($teachers->currentPage() - 1) * $teachers->perPage() + 1;
+        return view('teacher.teacher', compact('teachers', 'startingIndex')); 
     }
 
     public function create(){
@@ -25,7 +26,8 @@ class TeacherController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'date_naissance' => 'required',
-            'cin' => 'required'
+            'cin' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', 
         ]);
 
         $teacher = new Teacher();
@@ -34,6 +36,13 @@ class TeacherController extends Controller
         $teacher->phone = $request->input('phone');
         $teacher->date_naissance = $request->input('date_naissance');
         $teacher->cin = $request->input('cin');
+        if ($request->hasFile('image')) {
+            $image=$request->file('image');
+            $name=time();
+            $image -> getClientOriginalExtension();
+            $image-> storeAs('public/images/'.$name);
+            $teacher->image = $name;
+        }
         $teacher->save();
 
         return redirect()->route('getTeacher')->with('info','Teacher Added Successfully');

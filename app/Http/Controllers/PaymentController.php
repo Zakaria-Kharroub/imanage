@@ -10,9 +10,9 @@ use App\Models\Student;
 class PaymentController extends Controller
 {
     public function getPayment(){
-        $Payment = Payment::all();
-        $totalAmount = $Payment->sum('amount');
-        return view('payment.payment',compact('Payment','totalAmount'));
+        $payments = Payment::all();
+        $totalAmount = $payments->sum('amount');
+        return view('payment.payment',compact('payments','totalAmount'));
     }
 
     public function create(){
@@ -22,18 +22,21 @@ class PaymentController extends Controller
     }
     public function addPayment(Request $request){
 
-        $validatedData = $request->validate([
+        $request->validate([
             'amount' => 'required',
             'date' => 'required',
             'student_id' => 'required|exists:students,id',
             'formation_id' => 'required|exists:formations,id',
         ]);
-
-        // Create a new payment
-        Payment::create($validatedData);
-
+        $payment = new Payment();
+        $payment->amount = $request->input('amount');
+        $payment->date = $request->input('date');
+        $payment->student_id = $request->input('student_id');
+        $payment->formation_id = $request->input('formation_id');
+        $payment->save();
+    
         // Redirect back or wherever appropriate
-        return redirect()->route('getPayment')->with('success', 'Payment added successfully.');
+        return redirect()->route('getPayment');
     }
 
     // public function show(string $id)
@@ -64,8 +67,8 @@ class PaymentController extends Controller
 
     public function deletePayment($id)
     {
-        $Payment = Payment::findOrFail($id);
-        $Payment->delete();
+        $payments = Payment::findOrFail($id);
+        $payments->delete();
         return redirect()->route('getPayment');
     }
 

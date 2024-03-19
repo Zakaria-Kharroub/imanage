@@ -18,7 +18,7 @@
         @if($classes->count()>0)
             @foreach($classes as $rs )
                 <tr class="text-gray-700 dark:text-gray-400">
-                    <td>{{$loop->iteration}}</td>
+                    <td>{{ $startingIndex++ }}</td>
                 <td class="px-4 py-3">
                     <div class="flex items-center text-sm">
                     <!-- Avatar with inset shadow -->
@@ -87,4 +87,6 @@
       </tbody>
     </table>
   </div>
+  {{ $classes->links() }}
+
 @endsection

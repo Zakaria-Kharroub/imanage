@@ -12,8 +12,9 @@ class FormationController extends Controller
 
     public function getFormation(){
 
-        $formations = Formation::all();
-        return view('formation.formation',compact('formations'));
+        $formations = Formation::paginate(7);
+        $startingIndex = ($formations->currentPage() - 1) * $formations->perPage() + 1;
+        return view('formation.formation',compact('formations', 'startingIndex'));
     }
 
     public function createFormation(){

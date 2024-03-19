@@ -14,19 +14,19 @@
         </tr>
       </thead>
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        @if($Payment->count()>0)
-            @foreach($Payment as $rs )
+        @if($payments->count()>0)
+            @foreach($payments as $rs )
                 <tr class="text-gray-700 dark:text-gray-400">
                     <td>{{$loop->iteration}}</td>
                 <td class="px-4 py-3">
                     <div class="flex items-center text-sm">
                     <!-- Avatar with inset shadow -->
                     <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                        <img class="object-cover w-full h-full rounded-full" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="" loading="lazy"/>
+                        <img class="object-cover w-full h-full rounded-full" src="storage/images/{{$rs->student?->image}}" alt="" loading="lazy"/>
                         <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                     </div>
                     <div>
-                        <p class="font-semibold">{{$rs->students->nom }}  {{$rs->students->prenom }} </p>
+                        <p class="font-semibold">{{$rs->student?->name }}</p>
                     </div>
                     </div>
                 </td>
