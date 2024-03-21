@@ -12,7 +12,10 @@
     <input type="number" name="phone" placeholder="Phone Number" value="{{$student->phone}}">
     <input type="text" name="cin" placeholder="CIN" value="{{$student->cin}}">
     <input type="date" name="date_naissance" placeholder="Date of Birth" value="{{$student->date_naissance}}">
-    <input type="text" name="classe_id" placeholder="Class" value="{{$student->classe_id}}">
+    <option value="">Select class</option>
+    @foreach($classes as $class)
+        <option name="classe_id" value="{{$student->classe_id}}">{{ $class->name }}</option>
+    @endforeach
     <button type="submit" class="button">EDIT</button>
   </form>
 </div>

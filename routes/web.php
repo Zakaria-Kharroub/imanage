@@ -113,3 +113,6 @@ Route::post('/addClass', [ClasseController::class, 'addClass'])->name('addClass'
 Route::get('/detailClass/{id}', [ClasseController::class, 'detailClass'])->name('detailClass');
 
 
+Route::get('/bills', function () {
+    return view('bills.bills');
+})->name('getBills');
