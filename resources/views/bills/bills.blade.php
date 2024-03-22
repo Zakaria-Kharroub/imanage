@@ -61,7 +61,7 @@
         <div class="col-md-4">
             <a href="{{route('getWater')}}">
             <div class="card mb-4">
-                <img src="water.png" alt="Card Image">
+                <img src="water.jpeg" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title">Water Bill</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -71,7 +71,7 @@
         </div>
         <div class="col-md-4">
             <div class="card mb-4">
-                <img src="wifi.png" alt="Card Image">
+                <img src="wif.jpeg" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title">WIFI Bill</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -82,7 +82,7 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card mb-4">
-                <img src="house.jpg" alt="Card Image">
+                <img src="rent.jpeg" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title">Rental Bill</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -91,7 +91,7 @@
         </div>
         <div class="col-md-4">
             <div class="card mb-4">
-                <img src="iso.jpg" alt="Card Image">
+                <img src="teacher.jpg" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title">Bill</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

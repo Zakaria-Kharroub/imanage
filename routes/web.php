@@ -111,6 +111,9 @@ Route::post('/addFormation', [FormationController::class, 'addFormation'])->name
 Route::get('/classes', [ClasseController::class, 'getClass'])->name('getClass');
 Route::get('/createClass', [ClasseController::class, 'createClass'])->name('createClass');
 Route::post('/addClass', [ClasseController::class, 'addClass'])->name('addClass');
+Route::get('/class/{id}/edit', [ClasseController::class, 'editClass'])->name('editClass');
+Route::put('/class/{id}', [ClasseController::class, 'updateClass'])->name('updateClass');
+Route::delete('/class/{id}', [ClasseController::class, 'deleteClass'])->name('deleteClass');
 
 // detail class
 Route::get('/detailClass/{id}', [ClasseController::class, 'detailClass'])->name('detailClass');

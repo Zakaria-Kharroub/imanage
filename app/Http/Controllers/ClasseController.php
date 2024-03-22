@@ -50,5 +50,25 @@ class ClasseController extends Controller
         $students = Student::where('classe_id', $id)->get();
         return view('class.detailClass', compact('students'));
     }
+    public function editClass($id)
+    {
+        $class = Classe::findOrFail($id);
+        return view('Class.editClass', compact('class'));
+    }
+    public function updateClassee(Request $request, $id)
+    {
+        $class = Classe::findOrFail($id);
+        $class->name = $request->input('name');
+        $class->teacher_id = $request->input('teacher_id');
+        $class->formation_id = $request->input('formation_id');
+        $class->save();
+        return redirect()->route('getClass');
+    }
+    public function deleteClasse($id)
+    {
+        $class = Classe::findOrFail($id);
+        $class->delete();
+        return redirect()->route('getClass');
+    }
 
 }
