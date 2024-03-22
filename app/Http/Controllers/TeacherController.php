@@ -52,7 +52,7 @@ class TeacherController extends Controller
     public function show(string $id)
     {
         $teachers=Teacher::findOrFail($id);
-        return view('showTeacher',compact('teachers'));
+        return view('teacher.showTeacher',compact('teachers'));
     }
 
     public function editTeacher($id)
@@ -70,7 +70,13 @@ class TeacherController extends Controller
         $teacher->phone = $request->input('phone');
         $teacher->date_naissance = $request->input('date_naissance');
         $teacher->cin = $request->input('cin');
-        $teacher->classe_id = $request->input('classe_id');
+        if ($request->hasFile('image')) {
+            $image=$request->file('image');
+            $name=time();
+            $image -> getClientOriginalExtension();
+            $image-> storeAs('public/images/'.$name);
+            $teacher->image = $name;
+        }
         $teacher->save();
         return redirect()->route('getTeacher');
     }

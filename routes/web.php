@@ -8,7 +8,8 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\ElectricityController;
+use App\Http\Controllers\WaterController;
 
 Route::get('/', [DashboardController::class, 'index'])
     ->middleware(['auth:sanctum', 'verified'])
@@ -50,6 +51,7 @@ Route::post('/logout', [UserController::class, 'logoutUser'])->middleware(['auth
 Route::get('/students', [StudentController::class, 'getStudent'])->name('getStudent');
 Route::get('/createStudent', [StudentController::class, 'createStudent'])->name('createStudent');
 Route::post('/addStudent', [StudentController::class, 'addStudent'])->name('addStudent');
+Route::get('/students/{id}/show', [StudentController::class, 'show'])->name('students.show');
 Route::get('/students/{id}/edit', [StudentController::class, 'editStudent'])->name('editStudent');
 Route::put('/students/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
 Route::delete('/students/{id}', [StudentController::class, 'deleteStudent'])->name('deleteStudent');
@@ -69,6 +71,7 @@ Route::post('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addT
 Route::get('/teacher/{id}/edit', [TeacherController::class, 'editTeacher'])->name('editTeacher');
 Route::put('/teacher/{id}', [TeacherController::class, 'updateTeacher'])->name('updateTeacher');
 Route::delete('/teacher/{id}', [TeacherController::class, 'deleteTeacher'])->name('deleteTeacher');
+Route::get('/teacher/{id}/show', [TeacherController::class, 'show'])->name('teacher.show');
 
 // Route::get('teachers/show/{id}','show')->name('teachers.show');
 // Route::get('teachers/edit/{id}','edit')->name('teachers.edit');
@@ -116,3 +119,19 @@ Route::get('/detailClass/{id}', [ClasseController::class, 'detailClass'])->name(
 Route::get('/bills', function () {
     return view('bills.bills');
 })->name('getBills');
+
+// Electricity
+Route::get('/electricity', [ElectricityController::class, 'getElectricity'])->name('getElec');
+Route::get('/createElec', [ElectricityController::class, 'create'])->name('createElec');
+Route::post('/addElec', [ElectricityController::class, 'addElectricity'])->name('addElec');
+Route::get('/editElec/{id}', [ElectricityController::class, 'editElec'])->name('editElec');
+Route::put('/updateElec/{id}', [ElectricityController::class, 'updateElec'])->name('updateElec');
+Route::delete('/electricity/{id}', [ElectricityController::class, 'deleteElectricity'])->name('deleteElectricity');
+
+
+// Water
+Route::get('/water', [WaterController::class, 'getWater'])->name('getWater');
+Route::get('/createWater', [WaterController::class, 'create'])->name('createWater');
+Route::post('/addWater', [WaterController::class, 'addWater'])->name('addWater');
+Route::get('/editWater/{id}', [WaterController::class, 'editWater'])->name('editWater');
+Route::put('/updateWater/{id}', [WaterController::class, 'updateWater'])->name('updateWater');

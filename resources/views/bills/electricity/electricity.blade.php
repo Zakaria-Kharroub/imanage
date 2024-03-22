@@ -1,73 +1,64 @@
 @extends('layouts.default')
 <link rel="stylesheet" href="css/add.css">
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-rel="stylesheet"
-/>
-<link rel="stylesheet" href="../../assets/css/tailwind.output.css" />
-<script
-src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-defer
-></script>
-<script src="../../assets/js/init-alpine.js"></script>
-<!-- You need focus-trap.js to make the modal accessible -->
-<script src="../../assets/js/focus-trap.js" defer></script>
+
 @section('content')
 <div class="w-full overflow-x-auto">
     <table class="w-full whitespace-no-wrap">
       <thead>
         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
           <th class="px-4 py-3">id</th>
-          <th class="px-4 py-3">teachers</th>
-          <th class="px-4 py-3">phone</th>
-          <th class="px-4 py-3">email</th>
-          <th class="px-4 py-3"> date of birth</th>
-          <th><a href="{{route('createTeacher')}}"><button class="add"> Add teacher</button></a></th>
+          <th class="px-4 py-3">date</th>
+          <th class="px-4 py-3">due date</th>
+          <th class="px-4 py-3">amount</th>
+          <th class="px-4 py-3">status</th>
+          <th><a href="{{route('createElec')}}"><button class="add"> Add</button></a></th>
         </tr>
       </thead>
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        @if($teachers->count()>0)
-            @foreach($teachers as $rs )
+        @if($electricity->count()>0)
+            @foreach($electricity as $rs )
                 <tr class="text-gray-700 dark:text-gray-400">
                     <td>{{ $startingIndex++ }}</td>
                 <td class="px-4 py-3">
                     <div class="flex items-center text-sm">
-                    <!-- Avatar with inset shadow -->
                     <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                        <img class="object-cover w-full h-full rounded-full" src="storage/images/{{$rs->image}}" alt="Teacher Image" loading="lazy"/>
+                        <img class="object-cover w-full h-full rounded-full" src="elect.jpg" alt="" loading="lazy"/>
                         <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                     </div>
                     <div>
-                        <p class="font-semibold">{{$rs->name }}</p>
-                        <p class="text-xs text-gray-600 dark:text-gray-400">{{$rs->cin}}</p>
+                        <p class="font-semibold">{{$rs->date }}  </p>
                     </div>
                     </div>
                 </td>
-                <td class="px-4 py-3 text-sm">
-                    {{$rs->phone}}
-                </td>
+
                 <td class="px-4 py-3 text-xs">
                     <span class="px-4 py-3 text-sm">
-                        {{$rs->email}}
+                        {{$rs->duedate}}
                     </span>
                 </td>
                 <td class="px-4 py-3 text-sm">
-                    {{$rs->date_naissance}}
+                    {{$rs->amount}}
+                </td>
+                
+                <td class="px-4 py-3 text-sm">
+                    @if($rs->status == 'paid')
+                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                            Paid
+                        </span>
+                    @elseif($rs->status == 'unpaid')
+                        <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                            Unpaid
+                        </span>
+                    @endif
                 </td>
                 <td class="px-4 py-3">
                     <div class="flex items-center space-x-4 text-sm">
-                        <a href="{{ route('editTeacher', ['id' => $rs->id]) }}"> <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
+                   <a href="{{route('editElec', ['id' => $rs->id])}}"> <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
                         <svg class="w-5 h-5" aria-hidden="true"  fill="currentColor" viewBox="0 0 20 20">
                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                         </svg>
                     </button></a>
-                    <a href="{{route('teacher.show',['id'=>$rs->id])}}">
-                        <button data-target="#staticBackdrop" data-toggle="modal" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Show">
-                        <i class="fa-solid fa-eye"></i>
-                    </button></a>
-                </td>
-                <td class="px-4 py-3">
-                    <form action="{{ route('deleteTeacher', ['id' => $rs->id]) }}" method="POST">
+                    <form action="{{ route('deleteElectricity', ['id' => $rs->id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <div class="flex items-center space-x-4 text-sm">
@@ -78,17 +69,20 @@ defer
                             </button>
                         </div>
                     </form>
+                    </div>
                 </td>
                 </tr>
             @endforeach
         @else
         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
             <td class="px-4 py-3">
-                teacher Not Found
+                Electricity Bills Not Found
             </td>
         </tr>
         @endif
       </tbody>
     </table>
-    {{ $teachers->links() }}
+  </div>
+  {{ $electricity->links() }}
+
 @endsection

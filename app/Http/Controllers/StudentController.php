@@ -70,8 +70,21 @@ class StudentController extends Controller
         $student->date_naissance = $request->input('date_naissance');
         $student->cin = $request->input('cin');
         $student->classe_id = $request->input('classe_id');
+        if ($request->hasFile('image')) {
+            $image=$request->file('image');
+            $name=time();
+            $image -> getClientOriginalExtension();
+            $image-> storeAs('public/images/'.$name);
+            $student->image = $name;
+        }
         $student->save();
         return redirect()->route('getStudent');
+    }
+    
+    public function show(string $id)
+    {
+        $student=Student::findOrFail($id);
+        return view('student.showStudent',compact('student'));
     }
 
     public function deleteStudent($id)

@@ -47,15 +47,19 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
+            <a href="{{route('getElec')}}">
             <div class="card mb-4">
+                
                 <img src="elec.jpg" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title">Electricity Bill</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-md-4">
+            <a href="{{route('getWater')}}">
             <div class="card mb-4">
                 <img src="water.png" alt="Card Image">
                 <div class="card-body">
@@ -63,6 +67,7 @@
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-md-4">
             <div class="card mb-4">

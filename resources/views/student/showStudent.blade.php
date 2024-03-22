@@ -1,19 +1,46 @@
-@extends('layouts.default')
-<link rel="stylesheet" href="css/add.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden; /* Ensure that the image doesn't overflow */
+        }
 
-@section('content')
-  <div class="w-full max-w-[300px] bg-white rounded-lg shadow-md p-6">
-    <h2 class="text-2xl font-bold text-gray-800 mb-4">Add a teachers </h2>
-    <form action="{{ route('students.show',$student->id) }}" method="POST" class="flex flex-col">
-        @method('PUT')
-      @csrf
-        <input type="text" class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" name="nom" placeholder="First Name" value="{{$teachers->nom}}" >
-        <input type="text" class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" name="prenom" placeholder="Last Name">
-        <input type="email" class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" name="email" placeholder="Email">
-        <input type="number" class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" name="phone" placeholder="Phone Number">
-        <input type="text" class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" name="cin" placeholder="CIN">
-        <input type="date" class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" name="dateN" placeholder="Date of Birth">
-        <button type="submit" class="button">Show students</button>
-    </form>
-  </div>
-@endsection
+        .card-image {
+            background-image: url('{{ asset('storage/images/' . $student->image) }}');
+            background-size: cover;
+            background-position: center;
+            height: 360px; /* Set height to 100% to cover the entire card */
+            border-radius: 6px 6px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-4"> <!-- Adjust column size as needed -->
+
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="category text-uppercase text-primary font-weight-bold"> {{$student->name}} </div>
+                    <div class="card-body">
+                        <h5 class="card-title heading"> {{$student->email}} </h5>
+                        <h5 class="card-title heading"> {{$student->cin}} </h5>
+                        <h5 class="card-title heading"> {{$student->date_naissance}} </h5>
+                        <p class="card-text author"> phone <span class="name font-weight-bold">{{$student->phone}}</span> </p>
+                        <a href="{{route('getStudent')}}" class="card-link">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
