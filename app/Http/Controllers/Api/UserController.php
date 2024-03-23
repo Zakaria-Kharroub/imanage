@@ -74,30 +74,19 @@ class UserController extends Controller
     public function loginUser(Request $request)
     {
         try {
-            // Validate user input
-            $validateUser = Validator::make($request->all(), [
-                'email' => 'required|email',
-                'password' => 'required'
-            ]);
-
-            if ($validateUser->fails()) {
-                return redirect('/login')->withErrors($validateUser)->withInput();
-            }
-
-            // Attempt to authenticate the user
-            if (!Auth::attempt($request->only(['email', 'password']))) {
+            if (!Auth::attempt($request->only('email', 'password'))) {
                 return redirect('/login')->with('error', 'Invalid credentials')->withInput();
             }
             
-            // Retrieve the authenticated user
-            $user = User::where('email', $request->email)->first();
-
-            return redirect('/')->with('success', 'Login successful. Welcome!');
+            // Set session variable
+            session(['authenticated' => true]);
+    
+            return redirect()->intended('/');
         } catch (\Throwable $th) {
             return redirect('/login')->with('error', $th->getMessage())->withInput();
         }
-        
     }
+    
 /**
  * Logout the authenticated user.
  *
@@ -109,6 +98,9 @@ public function logoutUser(Request $request)
     try {
         // Revoke the current user's token
         $request->user()->tokens()->delete();
+
+        // Unset session variable
+        session()->forget('authenticated');
 
         // Redirect to the login view after logout
         return Redirect::route('login')->with([
@@ -122,4 +114,5 @@ public function logoutUser(Request $request)
         ]);
     }
 }
+
 }
