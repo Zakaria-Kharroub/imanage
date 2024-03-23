@@ -30,7 +30,7 @@
                         <input class="form-control form-control-lg" type="date" placeholder="Date Naissance" name="date_naissance" aria-label=".form-control-lg example" value="{{$student->date_naissance}}">
                         <label for="inputGroupFile04">File Upload</label>
                         <div class="input-group">
-                            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image" value="{{ asset('storage/images/' . $student->image) }}">
+                        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image" value="{{ asset('storage/images/' . $student->image) }}">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">Submit</button> 
                         <a href="{{route('getStudent')}}" class="card-link">

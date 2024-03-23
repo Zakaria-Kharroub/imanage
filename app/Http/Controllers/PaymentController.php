@@ -64,6 +64,38 @@ class PaymentController extends Controller
     //     $Payment->save();
     //     return redirect()->route('getPayment');
     // }
+    public function editPayment($id)
+    {
+        $payment = Payment::findOrFail($id);
+        $student = Student::all();
+        $formation = Formation::all();
+        return view('payment.editPayment', compact('payment','student','formation'));
+    }
+    public function updatePayment(Request $request, $id)
+    {
+        $payment = Payment::findOrFail($id);
+        $payment->amount = $request->input('amount');
+        $payment->student_id = $request->input('student');
+        $payment->formation_id = $request->input('formation');
+        $payment->save();
+        return redirect()->route('getPayment');
+    }
+
+
+    public function receipt($id)
+    {
+        $payment = Payment::findOrFail($id);
+
+        $student = Student::findOrFail($payment->student_id);
+        $formation = Formation::findOrFail($payment->formation_id);
+
+        // Pass the retrieved data to the view
+        return view('payment.receipt', [
+            'payment' => $payment,
+            'student' => $student,
+            'formation' => $formation
+        ]);
+    }
 
     public function deletePayment($id)
     {

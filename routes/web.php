@@ -44,10 +44,10 @@ use App\Http\Controllers\WaterController;
         Route::get('/payments', [PaymentController::class, 'getPayment'])->name('getPayment');
         Route::get('/createPayment', [PaymentController::class, 'create'])->name('createPayment');
         Route::post('/addPayment', [PaymentController::class, 'addPayment'])->name('addPayment');
-        // Route::get('payments/show/{id}','show')->name('payments.show');
-        // Route::get('payments/edit/{id}','edit')->name('payments.edit');
-        // Route::put('payments/edit/{id}','update')->name('payments.update');
+        Route::get('/payment/{id}/edit', [PaymentController::class, 'editPayment'])->name('editPayment');
+        Route::put('/payment/{id}', [PaymentController::class, 'updatePayment'])->name('updatePayment');
         Route::delete('/payments/{id}', [PaymentController::class, 'deletePayment'])->name('deletePayment');
+        Route::get('/receipt/{id}', [PaymentController::class, 'receipt'])->name('receipt');
 
         //formation
 
@@ -92,9 +92,9 @@ use App\Http\Controllers\WaterController;
             });
     
 
-// Route::get('/test', function () {
-//     return view('test');
-// });
+Route::get('/test', function () {
+    return view('test');
+});
 
 // Route::controller(StudentController::class)->prefix('students')->group(function () {
 //     Route::get('/',  'index')->name('students.index');
