@@ -24,11 +24,19 @@
                             </div>
                             <div class="mb-3">
                                 <label for="teacher" class="form-label">Teacher</label>
-                                <input type="text" class="form-control" id="teacher" name="teacher" value="{{ $class->teacher->name }}" disabled>
+                                <select class="form-control" id="teacher" name="teacher">
+                                    @foreach($teacher as $teacher)
+                                        <option value="{{ $teacher->id }}" {{ $class->teacher->id == $teacher->id ? 'selected' : '' }}>{{ $teacher->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="formation" class="form-label">Formation</label>
-                                <input type="text" class="form-control" id="formation" name="formation" value="{{ $class->formation->name }}" disabled>
+                                <select class="form-control" id="formation" name="formation">
+                                    @foreach($formation as $formation)
+                                        <option value="{{ $formation->id }}" {{ $class->formation->id == $formation->id ? 'selected' : '' }}>{{ $formation->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="{{ route('getClass') }}" class="btn btn-secondary">Cancel</a>

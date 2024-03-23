@@ -53,18 +53,20 @@ class ClasseController extends Controller
     public function editClass($id)
     {
         $class = Classe::findOrFail($id);
-        return view('Class.editClass', compact('class'));
+        $teacher = Teacher::all();
+        $formation = Formation::all();
+        return view('Class.editClass', compact('class','teacher','formation'));
     }
-    public function updateClassee(Request $request, $id)
+    public function updateClass(Request $request, $id)
     {
         $class = Classe::findOrFail($id);
         $class->name = $request->input('name');
-        $class->teacher_id = $request->input('teacher_id');
-        $class->formation_id = $request->input('formation_id');
+        $class->teacher_id = $request->input('teacher');
+        $class->formation_id = $request->input('formation');
         $class->save();
         return redirect()->route('getClass');
     }
-    public function deleteClasse($id)
+    public function deleteClass($id)
     {
         $class = Classe::findOrFail($id);
         $class->delete();

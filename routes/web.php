@@ -97,6 +97,7 @@ Route::delete('/payments/{id}', [PaymentController::class, 'deletePayment'])->na
 Route::get('/formations', [FormationController::class, 'getFormation'])->name('getFormation');
 Route::get('/createFormation', [FormationController::class, 'createFormation'])->name('createFormation');
 Route::post('/addFormation', [FormationController::class, 'addFormation'])->name('addFormation');
+Route::delete('/formation/{id}', [FormationController::class, 'deleteFormation'])->name('deleteFormation');
 // Route::get('formation/show/{id}','show')->name('formation.show');
 // Route::get('formation/edit/{id}','edit')->name('formation.edit');
 // Route::put('formation/edit/{id}','update')->name('formation.update');

@@ -10,7 +10,7 @@
           <th class="px-4 py-3">phone</th>
           <th class="px-4 py-3">email</th>
           <th class="px-4 py-3"> date of birth</th>
-          <th><a href="{{route('createStudent')}}"><button class="add"> Add</button></a></th>
+          <th><a href="{{route('createStudent')}}"><button class="add"> Add a Student</button></a></th>
         </tr>
       </thead>
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">

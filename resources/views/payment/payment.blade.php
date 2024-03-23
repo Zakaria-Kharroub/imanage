@@ -10,7 +10,7 @@
           <th class="px-4 py-3">student</th>
           <th class="px-4 py-3">amount</th>
           <th class="px-4 py-3"> date </th>
-          <th><a href="{{ route('createPayment') }}"><button class="add"> Add</button></a></th>
+          <th><a href="{{ route('createPayment') }}"><button class="add"> Add a Payment</button></a></th>
         </tr>
       </thead>
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">

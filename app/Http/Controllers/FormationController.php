@@ -31,4 +31,10 @@ class FormationController extends Controller
         $formation->save();
         return redirect('/formations');
     }
+    public function deleteFormation($id)
+    {
+        $formation = Formation::findOrFail($id);
+        $formation->delete();
+        return redirect()->route('getFormation');
+    }
 }

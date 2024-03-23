@@ -11,7 +11,7 @@
           <th class="px-4 py-3">due date</th>
           <th class="px-4 py-3">amount</th>
           <th class="px-4 py-3">status</th>
-          <th><a href="{{route('createElec')}}"><button class="add"> Add</button></a></th>
+          <th><a href="{{route('createElec')}}"><button class="add"> Add a Bill</button></a></th>
         </tr>
       </thead>
       <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
