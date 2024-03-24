@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Invoice</title>
+    <link rel="stylesheet" href="css/tailwind.output.css" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
+<div class="overflow-hidden p-0 m-0 p-md-28 text-center bg-light ">
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

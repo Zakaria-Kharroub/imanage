@@ -40,7 +40,8 @@
             WYKEE SOLUTION
           </a>
           <ul class="mt-6">
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-4" style="height: 80px;"> <!-- Increased py-4 for more height and added inline style for explicit height -->
+
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
@@ -68,7 +69,8 @@
             </li>
           </ul>
           <ul>
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-4" style="height: 80px;"> <!-- Increased py-4 for more height and added inline style for explicit height -->
+
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{ route('getStudent') }}"
@@ -90,7 +92,8 @@
                 <span class="ml-4">Students</span>
               </a>
             </li>
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-4" style="height: 80px;"> <!-- Increased py-4 for more height and added inline style for explicit height -->
+
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{ route('getTeacher') }}"
@@ -112,7 +115,8 @@
                 <span class="ml-4">Teacher</span>
               </a>
             </li>
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-4" style="height: 80px;"> <!-- Increased py-4 for more height and added inline style for explicit height -->
+
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{ route('getClass') }}"
@@ -135,7 +139,8 @@
                 <span class="ml-4">Class</span>
               </a>
             </li>
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-4" style="height: 80px;"> <!-- Increased py-4 for more height and added inline style for explicit height -->
+
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{route('getPayment')}}"
@@ -157,7 +162,8 @@
                 <span class="ml-4">Payment</span>
               </a>
             </li>
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-4" style="height: 80px;"> <!-- Increased py-4 for more height and added inline style for explicit height -->
+
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{ route('getFormation') }}"
@@ -179,7 +185,8 @@
                 <span class="ml-4">Formation</span>
               </a>
             </li>
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-4" style="height: 80px;"> <!-- Increased py-4 for more height and added inline style for explicit height -->
+
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{route('getBills')}}"
