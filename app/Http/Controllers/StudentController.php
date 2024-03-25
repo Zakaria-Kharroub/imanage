@@ -22,6 +22,18 @@ class StudentController extends Controller
         $classes = Classe::all();
         return view('student.createStudent', compact('classes'));
     }
+    //     public function createStudent()
+    // {
+    //     // Get classes with less than 20 students
+    //     $classes = Classe::select('classes.id', 'classes.name') 
+    //         ->leftJoin('students', 'classes.id', '=', 'students.classe_id')
+    //         ->groupBy('classes.id', 'classes.name') 
+    //         ->havingRaw('COUNT(students.id) < 5 OR COUNT(students.id) IS NULL')
+    //         ->get();
+
+    //     return view('student.createStudent', compact('classes'));
+    // }
+
 
     public function addStudent(Request $request)
     {
