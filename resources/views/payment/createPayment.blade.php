@@ -25,6 +25,10 @@
                     <option value="{{ $formation->id }}">{{ $formation->name }}</option>
                 @endforeach
             </select>
+            <select class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="status" name="status">
+                <option value="paid">Paid</option>
+                <option value="unpaid">Unpaid</option>
+            </select>
             
 
             <button type="submit" class="button">Add Payment</button>

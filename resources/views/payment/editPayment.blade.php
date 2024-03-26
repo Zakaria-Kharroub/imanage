@@ -42,6 +42,11 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <label>Status </label>
+                            <select name="status" aria-label=".form-control-lg example"  class="form-control form-control-lg">
+                                <option value="paid" {{$payment->status == 'paid' ? 'selected' : ''}}>Paid</option>
+                                <option value="unpaid" {{$payment->status == 'unpaid' ? 'selected' : ''}}>Unpaid</option>
+                            </select>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="{{ route('getClass') }}" class="btn btn-secondary">Cancel</a>
                         </form>

@@ -10,6 +10,7 @@
           <th class="px-4 py-3">student</th>
           <th class="px-4 py-3">amount</th>
           <th class="px-4 py-3"> date </th>
+          <th class="px-4 py-3">status</th>
           <th><a href="{{ route('createPayment') }}"><button class="add"> Add a Payment</button></a></th>
         </tr>
       </thead>
@@ -38,6 +39,17 @@
                 </td>
                 <td class="px-4 py-3 text-sm">
                     {{$rs->date}}
+                </td>
+                <td class="px-4 py-3 text-sm">
+                    @if($rs->status == 'paid')
+                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                            Paid
+                        </span>
+                    @elseif($rs->status == 'unpaid')
+                        <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                            Unpaid
+                        </span>
+                    @endif
                 </td>
                 <td class="px-4 py-3">
                     <div class="flex items-center space-x-4 text-sm">

@@ -15,7 +15,7 @@ use App\Http\Controllers\WaterController;
 //     ->middleware(['auth:sanctum', 'verified'])
 //     ->name('welcome');
 
-    Route::middleware(['web', 'check.session'])->group(function () {
+        Route::middleware(['web', 'check.session'])->group(function () {
 
         Route::get('/', [DashboardController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('welcome');
 
@@ -89,7 +89,7 @@ use App\Http\Controllers\WaterController;
         Route::get('/editWater/{id}', [WaterController::class, 'editWater'])->name('editWater');
         Route::put('/updateWater/{id}', [WaterController::class, 'updateWater'])->name('updateWater');
 
-            });
+    });
     
 
 Route::get('/test', function () {
@@ -104,12 +104,8 @@ Route::get('/test', function () {
 
 // authentification
 
-
 Route::get('/register', [UserController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [UserController::class, 'registerUser']);
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'loginUser']);
 Route::post('/logout', [UserController::class, 'logoutUser'])->middleware(['auth:sanctum'])->name('logout');
-
-
-

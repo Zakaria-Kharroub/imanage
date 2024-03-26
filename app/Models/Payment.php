@@ -12,7 +12,8 @@ class Payment extends Model
         'amount',
         'student_id',
         'formation_id',
-        'date'
+        'date',
+        'status'
     ];
 
     public function student()

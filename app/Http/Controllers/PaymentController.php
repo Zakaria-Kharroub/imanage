@@ -6,12 +6,20 @@ use App\Models\Formation;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use App\Models\Student;
+use Carbon\Carbon;
+
 
 class PaymentController extends Controller
 {
     public function getPayment(){
         $payments = Payment::all();
         $totalAmount = $payments->sum('amount');
+        foreach ($payments as $payment) {
+            if (Carbon::parse($payment->date)->diffInMonths(Carbon::now()) > 1) {
+                $payment->status = 'unpaid';
+                $payment->save();
+            }
+        }
         return view('payment.payment',compact('payments','totalAmount'));
     }
 
@@ -27,12 +35,14 @@ class PaymentController extends Controller
             'date' => 'required',
             'student_id' => 'required|exists:students,id',
             'formation_id' => 'required|exists:formations,id',
+            'status' => 'required',
         ]);
         $payment = new Payment();
         $payment->amount = $request->input('amount');
         $payment->date = $request->input('date');
         $payment->student_id = $request->input('student_id');
         $payment->formation_id = $request->input('formation_id');
+        $payment->status = $request->input('status');
         $payment->save();
     
         // Redirect back or wherever appropriate
@@ -77,10 +87,10 @@ class PaymentController extends Controller
         $payment->amount = $request->input('amount');
         $payment->student_id = $request->input('student');
         $payment->formation_id = $request->input('formation');
+        $payment->status = $request->input('status');
         $payment->save();
         return redirect()->route('getPayment');
     }
-
 
     public function receipt($id)
     {

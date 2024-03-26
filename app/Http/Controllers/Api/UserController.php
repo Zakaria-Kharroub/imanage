@@ -78,9 +78,8 @@ class UserController extends Controller
                 return redirect('/login')->with('error', 'Invalid credentials')->withInput();
             }
             
-            // Set session variable
             session(['authenticated' => true]);
-    
+            
             return redirect()->intended('/');
         } catch (\Throwable $th) {
             return redirect('/login')->with('error', $th->getMessage())->withInput();
