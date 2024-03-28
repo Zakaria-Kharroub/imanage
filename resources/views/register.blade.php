@@ -13,7 +13,7 @@
       <form class="form_container" method="POST" >
         @csrf
 
-        <div class="logo_container"></div>
+        <div class="logo_container"><img src="logoWykee.png" alt="" class="logo_container"></div>
         <div class="title_container">
           <p class="title">Create your Account</p>
           <span class="subtitle">Get started with our app, just create an account and enjoy the experience.</span>

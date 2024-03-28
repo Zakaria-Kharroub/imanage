@@ -19,8 +19,14 @@ class Student extends Model
         'classe_id'
     ];
 
-    public function classes(){
+    public function classes()
+    {
         return $this->belongsToMany(Classe::class);
     }
 
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }
+

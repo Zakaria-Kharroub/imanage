@@ -18,12 +18,12 @@ class Payment extends Model
 
     public function student()
     {
-        return $this->belongsTo(Student::class, 'student_id');
+        return $this->belongsTo(Student::class);
     }
     
     public function formation()
     {
-        return $this->belongsTo(Formation::class, 'formation_id'); 
+        return $this->belongsTo(Formation::class); 
     }
     public function showPayments()
 {

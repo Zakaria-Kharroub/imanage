@@ -102,6 +102,7 @@ class StudentController extends Controller
     public function deleteStudent($id)
     {
         $student = Student::findOrFail($id);
+        $student->payments()->delete();
         $student->delete();
         return redirect()->route('getStudent');
     }
