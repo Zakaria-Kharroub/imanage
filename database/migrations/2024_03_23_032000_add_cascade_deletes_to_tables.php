@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('classe_id')->references('id')->on('classes')->onDelete('cascade');
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */

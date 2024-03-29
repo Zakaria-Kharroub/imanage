@@ -10,7 +10,7 @@
 <body>
   <div class="container">
 
-    <h2 class="text-center">List of Students</h2>
+    <h2 class="text-center">List of Students ({{$students->count()}})</h2>
 
     <table class="table">
         <thead style="background-color: rgb(33, 37, 41); color: white;">

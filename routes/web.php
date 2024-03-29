@@ -9,7 +9,9 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ElectricityController;
+use App\Http\Controllers\RentController;
 use App\Http\Controllers\WaterController;
+use App\Http\Controllers\WifiController;
 
 // Route::get('/', [DashboardController::class, 'index'])
 //     ->middleware(['auth:sanctum', 'verified'])
@@ -89,6 +91,21 @@ use App\Http\Controllers\WaterController;
         Route::get('/editWater/{id}', [WaterController::class, 'editWater'])->name('editWater');
         Route::put('/updateWater/{id}', [WaterController::class, 'updateWater'])->name('updateWater');
 
+        //Wifi
+        Route::get('/wifi', [WifiController::class, 'getWifi'])->name('getWifi');
+        Route::get('/createWifi', [WifiController::class, 'create'])->name('createWifi');
+        Route::post('/addWifi', [WifiController::class, 'addWifi'])->name('addWifi');
+        Route::get('/editWifi/{id}', [WifiController::class, 'editWifi'])->name('editWifi');
+        Route::put('/updateWifi/{id}', [WifiController::class, 'updateWifi'])->name('updateWifi');
+        Route::delete('/water/{id}', [WifiController::class, 'deleteWifi'])->name('deleteWifi');
+
+        //Rent
+        Route::get('/rent', [RentController::class, 'getRent'])->name('getRent');
+        Route::get('/createRent', [RentController::class, 'create'])->name('createRent');
+        Route::post('/addRent', [RentController::class, 'addRent'])->name('addRent');
+        Route::get('/editRent/{id}', [RentController::class, 'editRent'])->name('editRent');
+        Route::put('/updateRent/{id}', [RentController::class, 'updateRent'])->name('updateRent');
+        Route::delete('/water/{id}', [RentController::class, 'deleteRent'])->name('deleteRent');
     });
     
 
