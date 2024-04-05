@@ -1,91 +1,50 @@
 @extends('layouts.default')
 <link rel="stylesheet" href="css/add.css">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (optional, if you need Bootstrap JavaScript features) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 @section('content')
-<div class="w-full overflow-x-auto">
-    <table class="w-full whitespace-no-wrap">
-      <thead>
-        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-          <th class="px-4 py-3">id</th>
-          <th class="px-4 py-3">name</th>
-          <th class="px-4 py-3">teacher</th>
-          <th class="px-4 py-3">formation</th>
-          {{-- <th class="px-4 py-3">student </th> --}}
-          <th><a href="{{route('createClass')}}"><button class="add"> Add a Class</button></a></th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <a href="{{ route('createClass') }}" class="inline-block px-2 py-1 text-xs font-semibold leading-4 text-white bg-blue-600 rounded-md  mr-2">Add a new Class</a>
+        </div>
         @if($classes->count()>0)
-            @foreach($classes as $rs )
-                <tr class="text-gray-700 dark:text-gray-400">
-                    <td>{{ $startingIndex++ }}</td>
-                <td class="px-4 py-3">
-                    <div class="flex items-center text-sm">
-                    <!-- Avatar with inset shadow -->
-                    <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                        <img class="object-cover w-full h-full rounded-full" src="class.jpg" alt="" loading="lazy"/>
-                        <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                    </div>
-                    <div>
-                        <p class="font-semibold">{{$rs->name }} </p>
-                    </div>
-                    </div>
-                </td>
-                
-                <td class="px-4 py-3 text-xs">
-                    <span class="px-4 py-3 text-sm">
-                        {{$rs->teacher->name}}
-                    </span>
-                </td>
+            @foreach($classes as $rs)
+                <div class="col-sm-4 mb-4">
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <img class="object-cover w-full h-48 rounded-md mb-4" src="class.jpg" alt="Class Image">
 
-                <td class="px-4 py-3 text-xs">
-                    <span class="px-4 py-3 text-sm">
-                        {{$rs->formation->name}}
-                    </span>
-                </td>
- 
-                {{-- <td class="px-4 py-3 text-sm">
-                    {{$rs->date}}
-                </td> --}}
-                <td class="px-4 py-3">
-                    <div class="flex items-center space-x-4 text-sm">
-                   <a href="{{route('editClass', ['id' => $rs->id])}}"> <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
-                        <svg class="w-5 h-5" aria-hidden="true"  fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                        </svg>
-                    </button></a>
+                        <h2 class="text-xl font-semibold">{{ $rs->name }}</h2>
+                        <p class="text-sm text-gray-600">Teacher: {{ $rs->teacher->name }}</p>
+                        <p class="text-sm text-gray-600">Formation: {{ $rs->formation->name }}</p>
 
-                    <a href="{{route('detailClass',['id'=>$rs->id])}}">
-                        <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Show">
-                        <i class="fa-solid fa-eye"></i>
-                    </button></a>
-
-                    <form action="{{ route('deleteClass', ['id' => $rs->id]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <div class="flex items-center space-x-4 text-sm">
-                            <button type="submit" class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Delete">
-                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                                </svg>
-                            </button>
+                        <div class="mt-4">
+                            <a href="{{ route('editClass', ['id' => $rs->id]) }}" class="inline-block px-4 py-2 text-sm font-semibold leading-5 text-white bg-purple-600 rounded-md mr-2">Edit</a>
+                            <a href="{{ route('detailClass', ['id' => $rs->id]) }}" class="inline-block px-4 py-2 text-sm font-semibold leading-5 text-white bg-purple-600 rounded-md mr-2">Show</a>
+                            <form action="{{ route('deleteClass', ['id' => $rs->id]) }}" method="POST" class="inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="px-4 py-2 text-sm font-semibold leading-5 text-white bg-purple-600 rounded-md">Delete</button>
+                            </form>
                         </div>
-                    </form>
-
                     </div>
-                </td>
-                </tr>
+                </div>
             @endforeach
         @else
-        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-            <td class="px-4 py-3">
-                class Not Found
-            </td>
-        </tr>
+            <div class="col-sm-12">
+                <div class="p-4 bg-white rounded-lg shadow-md">
+                    <p class="text-sm font-semibold">No classes found.</p>
+                </div>
+            </div>
         @endif
-      </tbody>
-    </table>
-  </div>
-  {{ $classes->links() }}
+    </div>
+</div>
 
+{{ $classes->links() }}
 @endsection
