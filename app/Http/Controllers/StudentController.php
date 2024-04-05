@@ -10,6 +10,8 @@ use App\Models\Classe;
 
 class StudentController extends Controller
 {
+
+
     public function getStudent()
     {
         $students = Student::orderBy('created_at', 'desc')->paginate(7);
@@ -98,6 +100,16 @@ class StudentController extends Controller
         $student=Student::findOrFail($id);
         return view('student.showStudent',compact('student'));
     }
+    public function search(Request $request)
+    {
+        $searchInput = $request->input('searchInput');
+
+        $students = Student::where('name', 'LIKE', '%' . $searchInput . '%')
+        ->get();
+
+        return response()->json(['students' => $students]);
+    }
+
 
     public function deleteStudent($id)
     {

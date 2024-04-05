@@ -9,6 +9,8 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ElectricityController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FormerController;
 use App\Http\Controllers\RentController;
 use App\Http\Controllers\WaterController;
 use App\Http\Controllers\WifiController;
@@ -30,6 +32,7 @@ use App\Http\Controllers\WifiController;
         Route::get('/students/{id}/edit', [StudentController::class, 'editStudent'])->name('editStudent');
         Route::put('/students/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
         Route::delete('/students/{id}', [StudentController::class, 'deleteStudent'])->name('deleteStudent');
+        Route::get('/search', [StudentController::class, 'search'])->name('search');
 
         //teacher
 
@@ -106,6 +109,22 @@ use App\Http\Controllers\WifiController;
         Route::get('/editRent/{id}', [RentController::class, 'editRent'])->name('editRent');
         Route::put('/updateRent/{id}', [RentController::class, 'updateRent'])->name('updateRent');
         Route::delete('/water/{id}', [RentController::class, 'deleteRent'])->name('deleteRent');
+
+        //Former
+        Route::get('/formers', [FormerController::class, 'getFormer'])->name('getFormer');
+        Route::get('/createFormer', [FormerController::class, 'createFormer'])->name('createFormer');
+        Route::post('/addFormer', [FormerController::class, 'addFormer'])->name('addFormer');
+        Route::get('/formers/{id}/edit', [FormerController::class, 'editFormer'])->name('editFormer');
+        Route::put('/formers/{id}', [FormerController::class, 'updateFormer'])->name('updateFormer');
+        Route::delete('/formers/{id}', [FormerController::class, 'deleteFormer'])->name('deleteFormer');
+
+        //Employee
+        Route::get('/employees', [EmployeeController::class, 'getEmployee'])->name('getEmployee');
+        Route::get('/createEmployee', [EmployeeController::class, 'createEmployee'])->name('createEmployee');
+        Route::post('/addEmployee', [EmployeeController::class, 'addEmployee'])->name('addEmployee');
+        Route::get('/employees/{id}/edit', [EmployeeController::class, 'editEmployee'])->name('editEmployee');
+        Route::put('/employees/{id}', [EmployeeController::class, 'updateEmployee'])->name('updateEmployee');
+        Route::delete('/employees/{id}', [EmployeeController::class, 'deleteEmployee'])->name('deleteEmployee');
     });
     
 

@@ -94,22 +94,26 @@
         </a>
         </div>
         <div class="col-md-4">
+            <a href="{{route('getFormer')}}">
             <div class="card mb-4">
                 <img src="teacher.jpg" alt="Card Image">
                 <div class="card-body">
-                    <h5 class="card-title">Bill</h5>
+                    <h5 class="card-title">Former Bill</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-md-4">
+            <a href="{{route('getEmployee')}}">
             <div class="card mb-4">
                 <img src="employe.jpeg" alt="Card Image">
                 <div class="card-body">
-                    <h5 class="card-title">Card Title</h5>
+                    <h5 class="card-title">Employee Bill</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
+            </a>
         </div>
     </div>
  
